@@ -44,7 +44,9 @@ public class Box {
     public void mete(Vehiculo vehiculo) {
         fasesRevision[0].asigna(vehiculo);
     }
-
+    //si no esta en la primera fase , asigna el vehiculo a la fase siguiente
+    //van pasando de fase dentro de un box
+    //
     public void pasaVehiculosDeFase(ColaVehiculos colaPendientes) {
         
         if (fasesRevision[fasesRevision.length - 1].hayVehiculo()) {
@@ -59,7 +61,7 @@ public class Box {
 
         this.fasesRevision[0].desasignaVehiculo();
     }
-
+    //muestra el numero de box y la fase de revision
     public void mostrar() {
         GestorIO gestorIO = new GestorIO();
         gestorIO.out("\nBox:" + id + "\n----");

@@ -21,7 +21,7 @@ public class Taller {
     private Box[] boxes;
     private ColaVehiculos colaInicial;
     private ColaVehiculos colaPendientesPago;
-
+    //añadimos la cola pendientes de pago
     public static final int NUM_BOXES = 6;
     
     public Taller() {
@@ -38,7 +38,7 @@ public class Taller {
     public Box[] getBoxes() {
         return boxes;
     }
-
+    
     public ColaVehiculos getColaInicial() {
         return colaInicial;
     }

@@ -22,7 +22,7 @@ public abstract class OpcionTaller extends Opcion{
         super(titulo);
         this.taller = taller;
     }
-    
+    // para controlar los minimos y maximos a la hora de calcular el precio
     protected double getValorDouble(String nombre, int min, int max) {
         
         GestorIO gestorIO = new GestorIO();
@@ -40,7 +40,7 @@ public abstract class OpcionTaller extends Opcion{
         
         return valor;
     }
-    
+    //lo mismo pero en vez de un doble , para un enteero
     protected int getValorInt(String nombre, int min, int max) {
         
         GestorIO gestorIO = new GestorIO();

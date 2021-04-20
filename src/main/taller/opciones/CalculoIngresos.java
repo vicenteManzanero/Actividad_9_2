@@ -14,13 +14,15 @@ import main.util.GestorIO;
  */
 public class CalculoIngresos extends Opcion {
 
-    private ListaVehiculos vehiculosFinalizados;
-    
+    private ListaVehiculos vehiculosFinalizados; 
+    //coge todos vehiculos que han pagado y los suma
     public CalculoIngresos(ListaVehiculos vehiculosFinalizados) {
         super("Cálculo de ingresos");
         this.vehiculosFinalizados = vehiculosFinalizados;
     }
-
+    //comprueba si esta vacia o no la matriz
+    //si no esta vacia llama a mostrarprecio
+    //si esta vacia dice que no hay vehiculos
     @Override
     public void ejecutar() {
         if (!this.vehiculosFinalizados.vacia()) {

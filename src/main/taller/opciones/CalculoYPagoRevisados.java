@@ -19,13 +19,15 @@ public class CalculoYPagoRevisados extends Opcion {
 
     private Taller taller;
     private ListaVehiculos vehiculosFinalizados;
-    
+    //pasa el titulo de la opcion 
     public CalculoYPagoRevisados(Taller taller, ListaVehiculos vehiculosFinalizados) {
         super("Calcular y pagar vehículo revisado");
         this.taller = taller;
         this.vehiculosFinalizados = vehiculosFinalizados;
     }
-
+    //verifica si esta vacia
+    //si esta vacia muestra el mensaje del else
+    //si hay , lo saca, lo guarda en vehiculo y muestra el vehiculo y lo que ha pagado
     @Override
     public void ejecutar() {
         
@@ -34,7 +36,7 @@ public class CalculoYPagoRevisados extends Opcion {
         if (!taller.getColaPendientes().vacia()) {
             Vehiculo vehiculo = taller.getColaPendientes().saca();
             gestorIO.out("\nEl vehículo " + vehiculo + " ha pagado " + vehiculo.calcularPrecio());
-            this.vehiculosFinalizados.mete(vehiculo);
+            this.vehiculosFinalizados.mete(vehiculo); //lo mete en la lista de vehiculos finalizados
         } else {
             gestorIO.out("No hay vehículos en la cola de pendientes de pago");
         }

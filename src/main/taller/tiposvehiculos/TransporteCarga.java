@@ -14,7 +14,7 @@ public abstract class TransporteCarga extends Vehiculo{
     private double pma;
 
     private static final int INCREMENTO_PRECIO_MENOS_10_CILINDROS = 3;
-    private static final int INCREMENTO_PRECIO_MAS_10_CILINDROS = 3;
+    private static final int INCREMENTO_PRECIO_MAS_10_CILINDROS = 4;
     
     public TransporteCarga(double pma, String matricula, String modelo, int potencia, int cilindros) {
         super(matricula, modelo, potencia, cilindros);

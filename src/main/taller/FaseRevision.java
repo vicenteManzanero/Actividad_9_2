@@ -44,12 +44,12 @@ class FaseRevision {
         else
             gestorIO.out("Vacío");
     }
-
+    //
     public void asignaVehiculoA(FaseRevision faseRevision) {
        faseRevision.vehiculo = this.vehiculo;
        this.desasignaVehiculo();
     }
-    
+    //coge un vechiculo y lo añade a la cola (pendientes de pago)
     public void asignaVehiculoA(ColaVehiculos cola) {
        cola.mete(this.vehiculo);
        this.desasignaVehiculo();

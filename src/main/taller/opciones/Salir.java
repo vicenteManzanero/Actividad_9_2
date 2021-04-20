@@ -11,13 +11,14 @@ import main.ITV;
  *
  * @author jrmd
  */
+//recibe una referencia al programa principal
 public class Salir extends Opcion{
     private ITV itv;
     public Salir(ITV itv) {
         super("Salir del programa");
         this.itv = itv;
     }
-
+    //lama a finalizar de itv (pone fin a true)
     @Override
     public void ejecutar() {
         itv.finalizar();

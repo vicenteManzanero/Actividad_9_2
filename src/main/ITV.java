@@ -25,8 +25,8 @@ public class ITV {
 
     private Menu menu;
     private Taller taller;
-    private ListaVehiculos vehiculosFinalizados;
-    private boolean fin;
+    private ListaVehiculos vehiculosFinalizados; //aqui se meten todos los vehiculos que han pagado
+    private boolean fin; // para salir
     
     public ITV() {
         
@@ -54,7 +54,7 @@ public class ITV {
           
         } while (!fin);
     }
-    
+    //lo pone a true para que termine el bucle
     public void finalizar(){
         this.fin = true;
     }
