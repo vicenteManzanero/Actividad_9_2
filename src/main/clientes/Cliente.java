@@ -11,13 +11,13 @@ package main.clientes;
  */
 public class Cliente {
     private String nombre;
-    private String telefono;
+    private int telefono;
     private static int codig=1;
     private int codigo;
     private boolean esVip;
     private boolean tieneCarnet;
 
-    public Cliente(String nombre, String telefono) {
+    public Cliente(String nombre, int telefono) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.esVip = false;
@@ -26,14 +26,23 @@ public class Cliente {
         codig++;
         
     }
-    
-    public void hacerVip(){
-        this.esVip=true;
-    }
-    public void hacerCarnet(){
-        this.tieneCarnet=true;
+
+    public void setEsVip(boolean esVip) {
+        this.esVip = esVip;
     }
 
+    public void setTieneCarnet(boolean tieneCarnet) {
+        this.tieneCarnet = tieneCarnet;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    
     @Override
     public String toString() {
         return "Cliente" + "nombre=" + nombre + ", telefono=" + telefono + ", esVip=" + esVip + ", tieneCarnet=" + tieneCarnet + '}';
