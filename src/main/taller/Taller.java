@@ -5,6 +5,7 @@
  */
 package main.taller;
 
+import main.clientes.ListaClientes;
 import main.taller.Box;
 import main.taller.ColaVehiculos;
 import main.taller.tiposvehiculos.Coche;

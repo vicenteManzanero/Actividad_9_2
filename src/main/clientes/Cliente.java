@@ -10,29 +10,20 @@ package main.clientes;
  * @author ciclost
  */
 public class Cliente {
+
     private String nombre;
     private int telefono;
-    private static int codig=1;
+    private static int codig = 1;
     private int codigo;
-    private boolean esVip;
-    private boolean tieneCarnet;
+    TipoCliente Tipo;
 
-    public Cliente(String nombre, int telefono) {
+    public Cliente(String nombre, int telefono, TipoCliente Tipo) {
         this.nombre = nombre;
         this.telefono = telefono;
-        this.esVip = false;
-        this.tieneCarnet = false;
-        this.codigo=codig;
+        this.codigo = codig;
+        this.Tipo = Tipo;
         codig++;
-        
-    }
 
-    public void setEsVip(boolean esVip) {
-        this.esVip = esVip;
-    }
-
-    public void setTieneCarnet(boolean tieneCarnet) {
-        this.tieneCarnet = tieneCarnet;
     }
 
     public int getCodigo() {
@@ -42,14 +33,14 @@ public class Cliente {
     public String getNombre() {
         return nombre;
     }
-    
+
     @Override
     public String toString() {
-        return "Cliente" + "nombre=" + nombre + ", telefono=" + telefono + ", esVip=" + esVip + ", tieneCarnet=" + tieneCarnet + '}';
+        return "Cliente{" + "nombre=" + nombre + ", telefono=" + telefono + ", codigo=" + codigo + '}';
     }
-    
-    
-    
-    
-    
+
+    public boolean tieneEsta(int codigo) {
+        return this.codigo==codigo;
+    }
+
 }

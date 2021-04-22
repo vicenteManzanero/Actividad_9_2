@@ -6,6 +6,8 @@
 package main.taller.opciones;
 
 import main.clientes.Cliente;
+import main.clientes.ListaClientes;
+import main.clientes.TipoCliente;
 import main.taller.Taller;
 import main.util.GestorIO;
 import main.util.Intervalo;
@@ -22,19 +24,42 @@ public class AltaNuevoCliente extends OpcionTaller {
 
     @Override
     public void ejecutar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        GestorIO gestorIO = new GestorIO();
+        Cliente cliente = this.registrarNuevoCliente();
+            //ListaClientes.mete(this.registrarNuevoCliente());
+            gestorIO.out("Cliente añadido correctamente,");
+            informarCodigoYConfirmacion(cliente);
+        
     }
 
-    public String getNombreCliente() {
+    private Cliente registrarNuevoCliente() {
+        TipoCliente tipo = getTipoCliente();
+        switch (tipo) {
+            case VIP:
+                return new Cliente(getNombreCliente(), getTelefono(0, 999999999), tipo.VIP);
+
+            case SOCIO:
+                return new Cliente(getNombreCliente(), getTelefono(0, 999999999), tipo.SOCIO);
+
+            case NORMAL:
+                return new Cliente(getNombreCliente(), getTelefono(0, 999999999), tipo.NORMAL);
+
+        }
+        return null;
+    }
+
+    private String getNombreCliente() {
         GestorIO gestorIO = new GestorIO();
-        gestorIO.out("¿Nombre del cliente?:");
+        gestorIO.out("Introduce el nombre del cliente:");
         return gestorIO.inString();
     }
 
-    public int getTelefono(int min, int max) {
-        return getValorInt("Telefono", min, max);
+    private int getTelefono(int min, int max) {
+        return getValorInt("Introduce el telefono de contacto", min, max);
     }
-    public void hacerVip(Cliente cli){
+
+    /*
+    private void hacerVip(Cliente cli){
         GestorIO gestorIO = new GestorIO();
         
         int opcion=0;
@@ -47,12 +72,28 @@ public class AltaNuevoCliente extends OpcionTaller {
         
         
     }
-    public void informarCodigoYConfirmacion(Cliente cli){
-        
+     */
+    private TipoCliente getTipoCliente() {
         GestorIO gestorIO = new GestorIO();
-        gestorIO.out("El cliente "+ cli.getNombre()+ "ha sido dado de alta correctamente.\nSu codigo es :"+ cli.getCodigo());
-              
+        boolean error;
+        int opcion;
+
+        do {
+            gestorIO.out("¿Que tipo de cliente vas a registrar?\n [1:Vip, 2:Socio, 3:Normal]:");
+            opcion = gestorIO.inInt();
+            error = !new Intervalo(1, 3).incluye(opcion);
+            if (error) {
+                gestorIO.out("Error!!! Debe ser un tipo válido");
+            }
+        } while (error);
+        return TipoCliente.tipoSegunIndice(opcion);
     }
-    
+
+    private void informarCodigoYConfirmacion(Cliente cli) {
+
+        GestorIO gestorIO = new GestorIO();
+        gestorIO.out("El cliente " + cli.getNombre() + "ha sido dado de alta correctamente.\nSu codigo es :" + cli.getCodigo());
+
+    }
 
 }
